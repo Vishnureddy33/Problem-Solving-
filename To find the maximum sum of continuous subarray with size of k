@@ -1,0 +1,22 @@
+public class Main
+{
+	public static void main(String[] args) {
+	    
+	    int arr[] = {1, 3, -2, 4, 0, 4};
+	    int curr = 0, k = 3, n = 6;  
+	    
+	    for(int i = 0; i < k; i++)
+	       curr += arr[i];
+	       
+	   int mx = curr;
+	   
+	    for(int i = 1; i <= n-k; i++){
+	        curr += arr[i+k-1];
+	        curr -= arr[i-1];
+	        mx = Math.max(mx, curr);
+	    }
+	    
+	    System.out.print(mx);
+		 
+	}
+}
