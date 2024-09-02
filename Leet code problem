@@ -1,0 +1,23 @@
+class Solution {
+    public int chalkReplacer(int[] chalk, int k) {
+        int total=0;
+        for(int c:chalk){
+            total+=c;
+        }
+    k=k%total;
+    for(int i=0;i<chalk.length;i++){
+        if(k<chalk[i]){
+            return i;
+    }
+        k=k-chalk[i];
+    }
+    return -1;
+    }
+    public static void main(String args[]){
+        Solution sol=new Solution();
+        int[] chalk={5,1,5};
+        int k=22;
+        int a=sol.chalkReplacer(chalk,k);
+        System.out.print(a);
+    }
+}
