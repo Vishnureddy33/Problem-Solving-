@@ -1,0 +1,19 @@
+class Solution {
+    public int getLucky(String s, int k) {
+        StringBuilder numstr=new StringBuilder();
+        for(char c:s.toCharArray()){
+            int num=c-'a'+1;
+            numstr.append(num);
+        }
+        int sum=0;
+        for(char c:numstr.toString().toCharArray()){
+            sum=sum+c-'0';
+…    }
+        public static void main(String[] args) {
+                Solution solution = new Solution();
+                String s1 = "iiii";
+                int k1 = 1;
+                int result1 = solution.getLucky(s1, k1);
+                System.out.println(result1); 
+        }                                                         
+}
