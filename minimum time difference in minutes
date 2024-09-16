@@ -1,0 +1,27 @@
+class Solution {
+    public int findMinDifference(List<String> timePoints) {
+        List<Integer> vish=new ArrayList<>();
+        for(String time:timePoints){
+        String arr[]=time.split(":");
+        int hour=Integer.parseInt(arr[0]);
+        int minutes=Integer.parseInt(arr[1]);
+        int total=hour*60+minutes;
+        vish.add(total);
+        }
+ Collections.sort(vish);
+        int min=Integer.MAX_VALUE;
+        for(int i=1;i<vish.size();i++){
+            int diff=vish.get(i)-vish.get(i-1);
+            min=Math.min(min,diff);
+        }
+        int cir=1440-vish.get(vish.size()-1)+vish.get(0);
+        min=Math.min(cir,min);
+        return min;
+    }
+ public static void main(String args[]){
+        Solution sol=new Solution();
+        List<String> a=Arrays.asList("23:59","00:00");
+        int c=sol.findMinDifference(a);
+        System.out.print(c);
+    }
+}
