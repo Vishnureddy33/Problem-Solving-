@@ -1,0 +1,27 @@
+class Solution {
+    public String[] uncommonFromSentences(String s1, String s2) {
+        String a[]=s1.split(" ");
+        String b[]=s2.split(" ");
+        HashMap<String,Integer> vish=new HashMap<>();
+        for(String word:a){
+            vish.put(word,vish.getOrDefault(word,0)+1);
+        }
+         for(String word:b){
+                 vish.put(word,vish.getOrDefault(word,0)+1);
+    }
+              List<String> result=new ArrayList<>();
+              for(Map.Entry<String,Integer> entry:vish.entrySet()){
+                    if(entry.getValue()==1){
+                        result.add(entry.getKey());  
+                }
+              }
+              return result.toArray(new String[0]);
+         }
+         public static void main(String args[]){
+        Solution sol=new Solution();
+            String s1="this apple is sweet";
+            String s2="this apple is sour";
+            String[] c=sol.uncommonFromSentences(s1,s2);
+            System.out.print(Arrays.toString(c));
+         }
+    }
