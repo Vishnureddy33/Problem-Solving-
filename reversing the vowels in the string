@@ -1,0 +1,46 @@
+import java.util.*;
+
+class Main {
+
+    // Method to reverse only the vowels in the string
+    public static String checking(String a) {
+        char[] chars = a.toCharArray();
+        int left = 0;
+        int right = a.length() - 1;
+
+        while (left < right) {
+            // Move the left pointer to the next vowel
+            while (left < right && !isVowel(chars[left])) {
+                left++;
+            }
+
+            // Move the right pointer to the previous vowel
+            while (left < right && !isVowel(chars[right])) {
+                right--;
+            }
+
+            // Swap the vowels
+            char temp = chars[left];
+            chars[left] = chars[right];
+            chars[right] = temp;
+
+            left++;
+            right--;
+        }
+
+        return new String(chars);
+    }
+
+    // Method to check if a character is a vowel
+    private static boolean isVowel(char c) {
+        return "AEIOUaeiou".indexOf(c) != -1;
+    }
+
+    public static void main(String[] args) {
+        String a = "AbstrAcIe";
+        Main m = new Main();
+        String result = m.checking(a);
+        System.out.println("Original string: " + a);
+        System.out.println("Reversed vowels string: " + result);
+    }
+}
